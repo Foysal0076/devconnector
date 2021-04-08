@@ -6,6 +6,10 @@ const jwt = require('jsonwebtoken')
 const keys = require('../../config/keys')
 const passport = require('passport')
 
+//Load input validation
+const validateRegistration = require('../../validation/register')
+const validateLoginInput = require('../../validation/login')
+
 //@route GET api/users/test
 //@desc Tests users route
 //@access public
@@ -15,6 +19,13 @@ router.get('/test', (req, res) => res.json({ message: 'User Works' }))
 //@desc Register new user
 //@access public
 router.post('/register', (req, res) => {
+    const { errors, isValid } = validateRegistration(req.body)
+
+    //Check validation
+    if (!isValid) {
+        return res.status(400).json(errors)
+    }
+
     User.findOne({ email: req.body.email })
         .then(user => {
             if (user) {
@@ -50,15 +61,24 @@ router.post('/register', (req, res) => {
 //@desc Login user /returning token JWT
 //@access public
 router.post('/login', (req, res) => {
+
+    const { errors, isValid } = validateLoginInput(req.body)
+
+    //Check validation
+    if (!isValid) {
+        return res.status(400).json(errors)
+    }
     const email = req.body.email
     const password = req.body.password
+
 
     //Find the user by email
     User.findOne({ email })
         .then(user => {
             //check for user
             if (!user) {
-                return res.status(404).json({ email: 'User not found' })
+                errors.email = 'User not found'
+                return res.status(404).json(errors)
             }
 
             //check password
@@ -82,7 +102,8 @@ router.post('/login', (req, res) => {
                                 res.json({ success: true, token: 'Bearer ' + token })
                             })
                     } else {
-                        res.status(400).json({ password: 'Password incorrect' })
+                        errors.password = 'Password incorrect'
+                        res.status(400).json(errors)
                     }
                 })
         })
