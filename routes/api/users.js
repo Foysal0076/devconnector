@@ -98,7 +98,7 @@ router.post('/login', (req, res) => {
                             keys.secretOrKey,
                             { expiresIn: 10800 },
                             (err, token) => {
-                                res.json({ success: true, token: 'Bearer ' + token })
+                                return res.json({ success: true, token: 'Bearer ' + token })
                             })
                     } else {
                         errors.password = 'Password incorrect'
