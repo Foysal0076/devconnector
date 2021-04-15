@@ -52,7 +52,7 @@ class Navbar extends Component {
                     <div className="collapse navbar-collapse" id="mobile-nav">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <Link to='/profile' className="nav-link" > Developers </Link>
+                                <Link to='/profiles' className="nav-link" > Developers </Link>
                             </li>
                         </ul>
                         {isAuthenticated ? authLinks : guestLinks}
