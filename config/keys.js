@@ -1,4 +1,5 @@
-module.exports = {
-    mongoURI: 'mongodb+srv://foysal:3697@cluster0.58juz.mongodb.net/devconnector?retryWrites=true&w=majority',
-    secretOrKey: '5ab50ed4c956cd6278a46b2760dcf4324808d653215c9d7377f8c39b04ccd718723e3de4fff90467e3cf797a82139c7adc89254c2d1396a80937bfa43b7274784e48d9757eb5e4dd288a549b7a2bf8c55d7722bb2f6cfab68847ca85ea8a289b87aa28a8b5cfb6df24220cea460865eaedbac1d75b3f96cccb2b1099309bbbc072fe70b36c095b73e02d283d724686625859104ae05c37fc74553cc8a74b03291e5f5119ddc88d4fe6d0eca20ec510b00c202f2a00c63011f5d7e587a0a15368da48cdb440faf7b479608bf53b5fbb4d670b1b4974d2879671c28bb888a30d62da9c3b39e7dabad9c5095a1eeca3db9885fd2e41c6eef59f6de0a643a9bf89a8'
+if (process.env.NODE_ENV == 'production') {
+    module.exports = require('./keys_prod')
+} else {
+    module.exports = require('./keys_dev')
 }
