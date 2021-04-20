@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import isEmpty from '../../validation/is-empty'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 
 class ProfileItem extends Component {
@@ -13,7 +13,7 @@ class ProfileItem extends Component {
             <div className='card card-body bg-light mb-3' >
                 <div className="row">
                     <div className="col-2">
-                        <img src={profile.user.avatar} alt="Profile picture" className='rounded-circle' />
+                        <img src={profile.user.avatar} alt={profile.user.name} className='rounded-circle' />
                     </div>
                     <div className="col-lg-6 col-md-4 col-8">
                         <h3>{profile.user.name}</h3>
@@ -44,7 +44,7 @@ class ProfileItem extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 
@@ -52,4 +52,4 @@ ProfileItem.propTypes = {
     profile: PropTypes.object.isRequired
 }
 
-export default ProfileItem;
+export default ProfileItem

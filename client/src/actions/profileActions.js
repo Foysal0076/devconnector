@@ -58,7 +58,7 @@ export const createProfile = (profileData, history) => dispatch => {
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,
-                payload: { error: err.response.data }
+                payload: err.response.data
             }))
 }
 

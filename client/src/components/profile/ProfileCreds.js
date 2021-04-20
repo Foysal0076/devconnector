@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 
@@ -49,13 +49,13 @@ class ProfileCreds extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 
 ProfileCreds.propTypes = {
-    education: PropTypes.object.isRequired,
-    experience: PropTypes.object.isRequired,
+    education: PropTypes.array.isRequired,
+    experience: PropTypes.array.isRequired,
 }
 
-export default ProfileCreds;
+export default ProfileCreds

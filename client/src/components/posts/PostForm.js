@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { addPost } from '../../actions/postAction'
 import PropTypes from 'prop-types'
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import { connect } from 'react-redux';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup'
+import { connect } from 'react-redux'
 
 
 class PostForm extends Component {
@@ -42,14 +42,14 @@ class PostForm extends Component {
     render() {
         const { errors } = this.state
         return (
-            <div class="post-form mb-3">
-                <div class="card card-info">
-                    <div class="card-header bg-info text-white">
+            <div className="post-form mb-3">
+                <div className="card card-info">
+                    <div className="card-header bg-info text-white">
                         Say Somthing...
               </div>
-                    <div class="card-body">
+                    <div className="card-body">
                         <form onSubmit={this.onSubmit} >
-                            <div class="form-group">
+                            <div className="form-group">
                                 <TextAreaFieldGroup
                                     placeholder='Create a post'
                                     name='text'
@@ -58,13 +58,13 @@ class PostForm extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
-                            <button type="submit" class="btn btn-dark">Submit</button>
+                            <button type="submit" className="btn btn-dark">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
 
-        );
+        )
     }
 }
 
@@ -79,4 +79,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, { addPost })(PostForm);
+export default connect(mapStateToProps, { addPost })(PostForm)
