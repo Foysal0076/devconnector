@@ -50,11 +50,11 @@ class EditProfile extends Component {
             const skillsCSV = profile.skills.join(',')
 
             //IF profile field doesnt exist make empty string
-            profile.company = !isEmpty(profile.company) ? profile : ''
-            profile.wesbite = !isEmpty(profile.wesbite) ? profile : ''
-            profile.location = !isEmpty(profile.location) ? profile : ''
-            profile.githubusername = !isEmpty(profile.githubusername) ? profile : ''
-            profile.bio = !isEmpty(profile.company) ? profile : ''
+            profile.company = !isEmpty(profile.company) ? profile.company : ''
+            profile.wesbite = !isEmpty(profile.wesbite) ? profile.website : ''
+            profile.location = !isEmpty(profile.location) ? profile.location : ''
+            profile.githubusername = !isEmpty(profile.githubusername) ? profile.githubusername : ''
+            profile.bio = !isEmpty(profile.bio) ? profile : ''
             profile.social = !isEmpty(profile.social) ? profile.social : {}
             profile.twitter = !isEmpty(profile.social.twitter) ? profile.social.twitter : ''
             profile.facebook = !isEmpty(profile.social.facebook) ? profile.social.facebook : ''

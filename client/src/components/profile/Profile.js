@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { getProfileByHandle } from '../../actions/profileActions'
-import ProfileHeader from './ProfileHeader';
-import ProfileAbout from './ProfileAbout';
-import ProfileGithub from './ProfileGithub';
-import ProfileCreds from './ProfileCreds';
-import Spinner from '../common/Spinner';
-import { Link } from 'react-router-dom';
+import ProfileHeader from './ProfileHeader'
+import ProfileAbout from './ProfileAbout'
+import ProfileGithub from './ProfileGithub'
+import ProfileCreds from './ProfileCreds'
+import Spinner from '../common/Spinner'
+import { Link } from 'react-router-dom'
 
 class Profile extends Component {
 
@@ -17,8 +17,9 @@ class Profile extends Component {
             this.props.getProfileByHandle(this.props.match.params.handle)
         }
     }
+
     componentWillReceiveProps(nextProps) {
-        if (nextProps.profile.profile === null || nextProps.profile.loading) {
+        if (nextProps.profile.profile === null && this.props.profile.loading) {
             this.props.history.push('/notfound')
         }
     }
@@ -26,7 +27,7 @@ class Profile extends Component {
     render() {
 
         const { profile, loading } = this.props.profile
-        let profileContent;
+        let profileContent
         if (profile === null || loading) {
             profileContent = <Spinner />
         } else {
@@ -57,7 +58,7 @@ class Profile extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 
@@ -70,4 +71,4 @@ const mapStateToProps = state => ({
     profile: state.profile
 })
 
-export default connect(mapStateToProps, { getProfileByHandle })(Profile);
+export default connect(mapStateToProps, { getProfileByHandle })(Profile)

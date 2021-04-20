@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux';
-import TextFieldGroup from '../common/TextFieldGroup';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import { connect } from 'react-redux'
+import TextFieldGroup from '../common/TextFieldGroup'
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup'
 import { addExperience } from '../../actions/profileActions'
 
 
@@ -19,6 +19,7 @@ class AddExperience extends Component {
             to: '',
             description: '',
             disabled: false,
+            current: false,
             errors: {}
         }
         this.onChange = this.onChange.bind(this)
@@ -136,7 +137,7 @@ class AddExperience extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 
@@ -151,4 +152,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 })
 
-export default connect(mapStateToProps, { addExperience })(withRouter(AddExperience));
+export default connect(mapStateToProps, { addExperience })(withRouter(AddExperience))

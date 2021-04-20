@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux';
-import TextFieldGroup from '../common/TextFieldGroup';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import { connect } from 'react-redux'
+import TextFieldGroup from '../common/TextFieldGroup'
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup'
 import { addEducation } from '../../actions/profileActions'
 
 
@@ -19,6 +19,7 @@ class AddEducation extends Component {
             to: '',
             description: '',
             disabled: false,
+            current: false,
             errors: {}
         }
         this.onChange = this.onChange.bind(this)
@@ -80,7 +81,7 @@ class AddEducation extends Component {
                                     onChange={this.onChange}
                                     error={errors.school}
                                 />
-                                 <TextFieldGroup
+                                <TextFieldGroup
                                     placeholder='Degree or Certification'
                                     name='degree'
                                     value={this.state.degree}
@@ -121,15 +122,15 @@ class AddEducation extends Component {
                                         onChange={this.onCheck}
                                         id='current'
                                     />
-                                    <label htmlFor="current" className='form-check-label' >Current Job</label>
+                                    <label htmlFor="current" className='form-check-label' >Still studying</label>
                                 </div>
                                 <TextAreaFieldGroup
-                                    placeholder='Job Description'
+                                    placeholder='Description'
                                     name='description'
                                     value={this.state.description}
                                     onChange={this.onChange}
                                     error={errors.description}
-                                    info= 'Tell us about the program that you were in'
+                                    info='Tell us about the program that you were in'
                                 />
                                 <input type='submit' value='Submit' className=' btn btn-info btn-block' />
                             </form>
@@ -137,7 +138,7 @@ class AddEducation extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 
@@ -152,4 +153,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 })
 
-export default connect(mapStateToProps, { addEducation })(withRouter(AddEducation));
+export default connect(mapStateToProps, { addEducation })(withRouter(AddEducation))
